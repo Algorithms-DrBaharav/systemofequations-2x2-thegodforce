@@ -40,9 +40,25 @@ public class SystemOfEquations2x2 {
      */
     public double[] Solve2x2(){
         
-        // Your code here
+        double x1=bigA[0][0];
+        double x2=bigA[1][0];
+        double y1=bigA[0][1];
+        double y2=bigA[1][1];
+        double ans1=bigA[0][2];
+        double ans2=bigA[1][2];
+        double mult;
+        if(x1 == 0 || y1==0){
+           return null;
+        }
+        mult = x2/x1;
+        double mult_y=y2-mult*y1;
+        double mult_ans=ans2-mult*ans1;
+        double final_y=mult_ans/mult_y;
+        double final_x=(ans1-(final_y*y1))/x1;
         
-        return null;
+        
+        
+        return new double[]{final_x,final_y};
     }
     
 }
